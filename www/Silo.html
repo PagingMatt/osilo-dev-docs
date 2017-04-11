@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Peer.html">
+<link rel="next" href="Peer_access_log.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Api" rel="Chapter" href="Api.html">
+<link title="Auth" rel="Chapter" href="Auth.html">
+<link title="Coding" rel="Chapter" href="Coding.html">
+<link title="Cryptography" rel="Chapter" href="Cryptography.html">
+<link title="File_tree" rel="Chapter" href="File_tree.html">
+<link title="Http_client" rel="Chapter" href="Http_client.html">
+<link title="Http_server" rel="Chapter" href="Http_server.html">
+<link title="Peer" rel="Chapter" href="Peer.html">
+<link title="Silo" rel="Chapter" href="Silo.html">
+<link title="Peer_access_log" rel="Chapter" href="Peer_access_log.html">
+<link title="Wm" rel="Chapter" href="Wm.html"><title>Silo</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Peer.html" title="Peer">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Peer_access_log.html" title="Peer_access_log">Next</a>
+</div>
+<h1>Module <a href="type_Silo.html">Silo</a></h1>
+
+<pre><span class="keyword">module</span> Silo: <code class="code"><span class="keyword">sig</span></code> <a href="Silo.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
+Encapsulates the interface to Datakit server pointing to data silo.<br>
+</div>
+<hr width="100%">
+
+<pre><span class="keyword">module</span> <a href="Silo.Log.html">Log</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Silo.Log.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+Needed for instantiating a <code class="code"><span class="constructor">Client9p_unix</span></code>
+</div>
+
+<pre><span class="keyword">module</span> <a href="Silo.Client.html">Client</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Silo.Client.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+<code class="code"><span class="constructor">Client</span></code> module abstracts some client-specific behaviour.
+</div>
+
+<pre><span id="EXCEPTIONConnection_failed"><span class="keyword">exception</span> Connection_failed</span> <span class="keyword">of</span> <code class="type">string * string</code></pre>
+<div class="info ">
+Raised when connecting to the Datakit server fails.<br>
+</div>
+
+<pre><span id="EXCEPTIONDatakit_error"><span class="keyword">exception</span> Datakit_error</span> <span class="keyword">of</span> <code class="type">string</code></pre>
+<div class="info ">
+Raised when an operation inside Datakit fails. This will specify the exact
+    Datakit error.<br>
+</div>
+
+<pre><span id="EXCEPTIONWrite_failed"><span class="keyword">exception</span> Write_failed</span> <span class="keyword">of</span> <code class="type">string</code></pre>
+<div class="info ">
+Raised when writing fails. As <code class="code">write</code> gives <code class="code">unit</code>, without an exception
+    there would be no feedback if writing failed.<br>
+</div>
+
+<pre><span id="EXCEPTIONDelete_failed"><span class="keyword">exception</span> Delete_failed</span></pre>
+<div class="info ">
+Raised when writing fails. As <code class="code">delete</code> gives <code class="code">unit</code>, without an exception
+    there would be no feedback if deleting failed.<br>
+</div>
+
+<pre><span id="VALwrite"><span class="keyword">val</span> write</span> : <code class="type">client:<a href="Silo.Client.html#TYPEt">Client.t</a> -><br>       peer:<a href="Peer.html#TYPEt">Peer.t</a> -> service:string -> contents:Yojson.Basic.json -> unit Lwt.t</code></pre><div class="info ">
+<code class="code">write&nbsp;~client&nbsp;~peer&nbsp;~service&nbsp;~contents</code> will take the JSON <code class="code">contents</code>, it
+    expects this to be <code class="code"><span class="keywordsign">`</span><span class="constructor">Assoc</span>&nbsp;<span class="keyword">of</span>&nbsp;(string&nbsp;*&nbsp;<span class="constructor">Yojson</span>.<span class="constructor">Basic</span>.t)&nbsp;list</code>, the <code class="code">string</code>s
+    are file paths and the <code class="code"><span class="constructor">Yojson</span>.<span class="constructor">Basic</span>.json</code> is the file contents to write to
+    these file paths. <code class="code">client</code> is the client pointing to the correct Datakit
+    instance, <code class="code">peer</code> is the peer that owns the data that is about to be written
+    and the <code class="code">service</code> is the service this data is for.<br>
+</div>
+
+<pre><span id="VALread"><span class="keyword">val</span> read</span> : <code class="type">client:<a href="Silo.Client.html#TYPEt">Client.t</a> -><br>       peer:<a href="Peer.html#TYPEt">Peer.t</a> -> service:string -> paths:string list -> Yojson.Basic.json Lwt.t</code></pre><div class="info ">
+<code class="code">read&nbsp;~client&nbsp;~peer&nbsp;~service&nbsp;~paths</code> will read each file below or at the
+    list of <code class="code">paths</code> recursively from the <code class="code">service</code> on the Datakit server pointed
+    to by <code class="code">client</code>, for <code class="code">peer</code>. <code class="code">peer</code> is the <code class="code"><span class="constructor">Peer</span>.t</code> for this server.<br>
+</div>
+
+<pre><span id="VALdelete"><span class="keyword">val</span> delete</span> : <code class="type">client:<a href="Silo.Client.html#TYPEt">Client.t</a> -><br>       peer:<a href="Peer.html#TYPEt">Peer.t</a> -> service:string -> paths:string list -> unit Lwt.t</code></pre><div class="info ">
+<code class="code">delete&nbsp;~client&nbsp;~peer&nbsp;~service&nbsp;~paths</code> will delete each file (if it exists)
+    from the list of <code class="code">paths</code> from the <code class="code">service</code> on the Datakit server pointed to
+    by <code class="code">client</code>, for <code class="code">peer</code>. <code class="code">peer</code> is the <code class="code"><span class="constructor">Peer</span>.t</code> for this server.<br>
+</div>
+</body></html>

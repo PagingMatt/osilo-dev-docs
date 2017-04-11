@@ -1,0 +1,35 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Api" rel="Chapter" href="Api.html">
+<link title="Auth" rel="Chapter" href="Auth.html">
+<link title="Coding" rel="Chapter" href="Coding.html">
+<link title="Cryptography" rel="Chapter" href="Cryptography.html">
+<link title="File_tree" rel="Chapter" href="File_tree.html">
+<link title="Http_client" rel="Chapter" href="Http_client.html">
+<link title="Http_server" rel="Chapter" href="Http_server.html">
+<link title="Peer" rel="Chapter" href="Peer.html">
+<link title="Silo" rel="Chapter" href="Silo.html">
+<link title="Peer_access_log" rel="Chapter" href="Peer_access_log.html">
+<link title="Wm" rel="Chapter" href="Wm.html"><title>Auth.CS</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;empty&nbsp;:&nbsp;<span class="constructor">Auth</span>.<span class="constructor">CS</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;record_if_most_general&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;service:<span class="constructor">Auth</span>.<span class="constructor">CS</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;macaroon:<span class="constructor">Auth</span>.<span class="constructor">M</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Auth</span>.<span class="constructor">CS</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;find_most_general&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;service:<span class="constructor">Auth</span>.<span class="constructor">CS</span>.t&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;path:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;permission:<span class="constructor">Auth</span>.<span class="constructor">Token</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Auth</span>.<span class="constructor">M</span>.t&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;all_capabilities&nbsp;:&nbsp;<span class="constructor">Auth</span>.<span class="constructor">CS</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Auth</span>.<span class="constructor">M</span>.t&nbsp;list<br>
+<span class="keyword">end</span></code></body></html>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="next" href="Api.Peer.html">
+<link rel="Up" href="Api.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Api" rel="Chapter" href="Api.html">
+<link title="Auth" rel="Chapter" href="Auth.html">
+<link title="Coding" rel="Chapter" href="Coding.html">
+<link title="Cryptography" rel="Chapter" href="Cryptography.html">
+<link title="File_tree" rel="Chapter" href="File_tree.html">
+<link title="Http_client" rel="Chapter" href="Http_client.html">
+<link title="Http_server" rel="Chapter" href="Http_server.html">
+<link title="Peer" rel="Chapter" href="Peer.html">
+<link title="Silo" rel="Chapter" href="Silo.html">
+<link title="Peer_access_log" rel="Chapter" href="Peer_access_log.html">
+<link title="Wm" rel="Chapter" href="Wm.html"><title>Api.Client</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="Api.html" title="Api">Up</a>
+&nbsp;<a class="post" href="Api.Peer.html" title="Api.Peer">Next</a>
+</div>
+<h1>Module <a href="type_Api.Client.html">Api.Client</a></h1>
+
+<pre><span class="keyword">module</span> Client: <code class="code"><span class="keyword">sig</span></code> <a href="Api.Client.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
+Entrypoint for all C2P communication. All data posted here is
+    portable/cross-platform. Clients can be implemented in any language with
+    HTTPS posting and a JSON parser.<br>
+</div>
+<hr width="100%">
+
+<pre><span name="TYPEget_local"><span class="keyword">class</span> <a href="Api.Client.get_local-c.html">get_local</a></span> : <code class="type">< get_address : <a href="Peer.html#TYPEt">Peer.t</a>; get_data_cache : Data_cache.t;<br>         get_private_key : Nocrypto.Rsa.priv; get_public_key : Nocrypto.Rsa.pub;<br>         get_secret_key : Cstruct.t; get_silo_client : <a href="Silo.Client.html#TYPEt">Silo.Client.t</a>;<br>         set_data_cache : Data_cache.t -> unit; .. > -> </code><code class="code"><span class="keyword">object</span></code> <a href="Api.Client.get_local-c.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+Entrypoint for client to read its own data.
+</div>
+
+<pre><span name="TYPEget_remote"><span class="keyword">class</span> <a href="Api.Client.get_remote-c.html">get_remote</a></span> : <code class="type">< get_address : <a href="Peer.html#TYPEt">Peer.t</a>; get_capability_service : <a href="Auth.CS.html#TYPEt">Auth.CS.t</a>;<br>         get_data_cache : Data_cache.t; get_private_key : Nocrypto.Rsa.priv;<br>         get_public_key : Nocrypto.Rsa.pub; get_secret_key : Cstruct.t;<br>         get_silo_client : <a href="Silo.Client.html#TYPEt">Silo.Client.t</a>; set_data_cache : Data_cache.t -> unit;<br>         .. > -> </code><code class="code"><span class="keyword">object</span></code> <a href="Api.Client.get_remote-c.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+Entrypoint for client to get peer to read another peer's data.
+</div>
+
+<pre><span name="TYPEset_local"><span class="keyword">class</span> <a href="Api.Client.set_local-c.html">set_local</a></span> : <code class="type">< get_address : <a href="Peer.html#TYPEt">Peer.t</a>; get_data_cache : Data_cache.t;<br>         get_private_key : Nocrypto.Rsa.priv; get_public_key : Nocrypto.Rsa.pub;<br>         get_secret_key : Cstruct.t; get_silo_client : <a href="Silo.Client.html#TYPEt">Silo.Client.t</a>;<br>         set_data_cache : Data_cache.t -> unit; .. > -> </code><code class="code"><span class="keyword">object</span></code> <a href="Api.Client.set_local-c.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+Entrypoint for client to write its own data.
+</div>
+
+<pre><span name="TYPEset_remote"><span class="keyword">class</span> <a href="Api.Client.set_remote-c.html">set_remote</a></span> : <code class="type">< get_address : <a href="Peer.html#TYPEt">Peer.t</a>; get_capability_service : <a href="Auth.CS.html#TYPEt">Auth.CS.t</a>;<br>         get_data_cache : Data_cache.t; get_private_key : Nocrypto.Rsa.priv;<br>         get_public_key : Nocrypto.Rsa.pub; get_secret_key : Cstruct.t;<br>         get_silo_client : <a href="Silo.Client.html#TYPEt">Silo.Client.t</a>; set_data_cache : Data_cache.t -> unit;<br>         .. > -> </code><code class="code"><span class="keyword">object</span></code> <a href="Api.Client.set_remote-c.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+Entrypoint for client to get peer to write another peer's data.
+</div>
+
+<pre><span name="TYPEdel_local"><span class="keyword">class</span> <a href="Api.Client.del_local-c.html">del_local</a></span> : <code class="type">< get_address : <a href="Peer.html#TYPEt">Peer.t</a>; get_data_cache : Data_cache.t;<br>         get_private_key : Nocrypto.Rsa.priv; get_public_key : Nocrypto.Rsa.pub;<br>         get_secret_key : Cstruct.t; get_silo_client : <a href="Silo.Client.html#TYPEt">Silo.Client.t</a>;<br>         set_data_cache : Data_cache.t -> unit; .. > -> </code><code class="code"><span class="keyword">object</span></code> <a href="Api.Client.del_local-c.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+Entrypoint for client to delete its own data.
+</div>
+
+<pre><span name="TYPEdel_remote"><span class="keyword">class</span> <a href="Api.Client.del_remote-c.html">del_remote</a></span> : <code class="type">< get_address : <a href="Peer.html#TYPEt">Peer.t</a>; get_capability_service : <a href="Auth.CS.html#TYPEt">Auth.CS.t</a>;<br>         get_data_cache : Data_cache.t; get_private_key : Nocrypto.Rsa.priv;<br>         get_public_key : Nocrypto.Rsa.pub; get_secret_key : Cstruct.t;<br>         get_silo_client : <a href="Silo.Client.html#TYPEt">Silo.Client.t</a>; set_data_cache : Data_cache.t -> unit;<br>         .. > -> </code><code class="code"><span class="keyword">object</span></code> <a href="Api.Client.del_remote-c.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+Entrypoint for client to get peer to delete another peer's data.
+</div>
+
+<pre><span name="TYPEpermit"><span class="keyword">class</span> <a href="Api.Client.permit-c.html">permit</a></span> : <code class="type">< get_address : <a href="Peer.html#TYPEt">Peer.t</a>; get_data_cache : Data_cache.t;<br>         get_private_key : Nocrypto.Rsa.priv; get_public_key : Nocrypto.Rsa.pub;<br>         get_secret_key : Cstruct.t; set_data_cache : Data_cache.t -> unit; .. > -> </code><code class="code"><span class="keyword">object</span></code> <a href="Api.Client.permit-c.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+Entrypoint for client to get its peer to mint and send capabilities to
+      another peer.
+</div>
+
+<pre><span name="TYPEinv"><span class="keyword">class</span> <a href="Api.Client.inv-c.html">inv</a></span> : <code class="type">< get_address : <a href="Peer.html#TYPEt">Peer.t</a>; get_data_cache : Data_cache.t;<br>         get_peer_access_log : <a href="Peer_access_log.html#TYPEt">Peer_access_log.t</a>;<br>         get_private_key : Nocrypto.Rsa.priv; get_public_key : Nocrypto.Rsa.pub;<br>         get_secret_key : Cstruct.t; set_data_cache : Data_cache.t -> unit;<br>         set_peer_access_log : <a href="Peer_access_log.html#TYPEt">Peer_access_log.t</a> -> unit; .. > -> </code><code class="code"><span class="keyword">object</span></code> <a href="Api.Client.inv-c.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+Entrypoint for client to get its peer to remotely invalidate its data
+      remotely cached.
+</div>
+</body></html>

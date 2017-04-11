@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Auth.html">
+<link rel="next" href="Cryptography.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Api" rel="Chapter" href="Api.html">
+<link title="Auth" rel="Chapter" href="Auth.html">
+<link title="Coding" rel="Chapter" href="Coding.html">
+<link title="Cryptography" rel="Chapter" href="Cryptography.html">
+<link title="File_tree" rel="Chapter" href="File_tree.html">
+<link title="Http_client" rel="Chapter" href="Http_client.html">
+<link title="Http_server" rel="Chapter" href="Http_server.html">
+<link title="Peer" rel="Chapter" href="Peer.html">
+<link title="Silo" rel="Chapter" href="Silo.html">
+<link title="Peer_access_log" rel="Chapter" href="Peer_access_log.html">
+<link title="Wm" rel="Chapter" href="Wm.html"><title>Coding</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Auth.html" title="Auth">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Cryptography.html" title="Cryptography">Next</a>
+</div>
+<h1>Module <a href="type_Coding.html">Coding</a></h1>
+
+<pre><span class="keyword">module</span> Coding: <code class="code"><span class="keyword">sig</span></code> <a href="Coding.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
+Decoding transmission-suitable (often serialised JSON) <code class="code">string</code> types into
+    internal types and vice versa.<br>
+</div>
+<hr width="100%">
+
+<pre><code><span id="TYPErequested_file"><span class="keyword">type</span> <code class="type"></code>requested_file</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrequested_file.path">path</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrequested_file.check_cache">check_cache</span>&nbsp;: <code class="type">bool</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrequested_file.write_back">write_back</span>&nbsp;: <code class="type">bool</code>;</code></td>
+
+</tr></table>
+}
+
+<div class="info ">
+Internal type for remote files requested to be read and what caching
+    operations to perform on these these.<br>
+</div>
+
+
+<pre><span id="VALencode_json_requested_file"><span class="keyword">val</span> encode_json_requested_file</span> : <code class="type"><a href="Coding.html#TYPErequested_file">requested_file</a> -> Yojson.Basic.json</code></pre><div class="info ">
+<code class="code">encode_json_requested_file&nbsp;file</code> takes a value of <code class="code">requested_file</code> an
+    encodes it into JSON.<br>
+</div>
+
+<pre><span id="VALdecode_json_requested_file"><span class="keyword">val</span> decode_json_requested_file</span> : <code class="type">Yojson.Basic.json -> <a href="Coding.html#TYPErequested_file">requested_file</a></code></pre><div class="info ">
+<code class="code">decode_json_requested_file&nbsp;json</code> takes a JSON value <code class="code">json</code> and if it can be
+    recoded into a <code class="code">requested_file</code> value this is returned. Otherwise
+    <code class="code"><span class="constructor">Decoding_failed</span></code> is raised with the <code class="code">string</code> representation of <code class="code">json</code> as
+    its parameter.<br>
+</div>
+
+<pre><span id="EXCEPTIONDecoding_failed"><span class="keyword">exception</span> Decoding_failed</span> <span class="keyword">of</span> <code class="type">string</code></pre>
+<div class="info ">
+Raised if cannot decode a string.<br>
+</div>
+
+<pre><span id="VALencode_cstruct"><span class="keyword">val</span> encode_cstruct</span> : <code class="type">Cstruct.t -> string</code></pre><div class="info ">
+<code class="code">encode_cstruct&nbsp;m</code> takes the <code class="code"><span class="constructor">Cstruct</span>.t</code> <code class="code">m</code> and encodes it to a base 64
+    <code class="code">string</code> for transmission.<br>
+</div>
+
+<pre><span id="VALdecode_cstruct"><span class="keyword">val</span> decode_cstruct</span> : <code class="type">string -> Cstruct.t</code></pre><div class="info ">
+<code class="code">decode_cstruct&nbsp;m</code> takes the base 64 <code class="code">string</code> and attempts to decode it into
+    a <code class="code"><span class="constructor">Cstruct</span>.t</code>.<br>
+</div>
+
+<pre><span id="VALdecode_file_list_message"><span class="keyword">val</span> decode_file_list_message</span> : <code class="type">string -> string list</code></pre><div class="info ">
+<code class="code">decode_file_list_message&nbsp;msg</code> takes a <code class="code">string</code> and tries to decode it into
+    a <code class="code">string&nbsp;list</code> of file paths. If it fails then <code class="code"><span class="constructor">Decoding_failed</span></code> is raised.<br>
+</div>
+
+<pre><span id="VALencode_file_list_message"><span class="keyword">val</span> encode_file_list_message</span> : <code class="type">string list -> Yojson.Basic.json</code></pre><div class="info ">
+<code class="code">encode_file_list_message&nbsp;paths</code> takes a list of files and encodes this into
+    a JSON value to send.<br>
+</div>
+
+<pre><span id="VALdecode_remote_file_list_message"><span class="keyword">val</span> decode_remote_file_list_message</span> : <code class="type">string -> <a href="Coding.html#TYPErequested_file">requested_file</a> list</code></pre><div class="info ">
+<code class="code">decode_remote_file_list_message&nbsp;msg</code> takes a <code class="code">string</code> and attempts to
+    decode it into a list of <code class="code">requested_files</code>, failing this it raises a
+    <code class="code"><span class="constructor">Decoding_failed</span></code> with the <code class="code">msg</code> as the parameter.<br>
+</div>
+
+<pre><span id="VALdecode_file_and_capability_list_message"><span class="keyword">val</span> decode_file_and_capability_list_message</span> : <code class="type">string -> string list * <a href="Auth.M.html#TYPEt">Auth.M.t</a> list</code></pre><div class="info ">
+<code class="code">decode_file_and_capability_list_message&nbsp;msg</code> takes a <code class="code">string</code> and attempts
+    to decode it into a <code class="code">list</code> of file paths paired with a list of capabilities.
+    If it fails to decode it, it raises <code class="code"><span class="constructor">Decoding_failed</span></code> with <code class="code">msg</code> as the
+    parameter.<br>
+</div>
+
+<pre><span id="VALdecode_file_content_and_capability_list_message"><span class="keyword">val</span> decode_file_content_and_capability_list_message</span> : <code class="type">string -> (string * Yojson.Basic.json) list * <a href="Auth.M.html#TYPEt">Auth.M.t</a> list</code></pre><div class="info ">
+<code class="code">decode_file_content_and_capability_list_message&nbsp;msg</code> takes <code class="code">msg</code> and tries
+    to decode it into a <code class="code">list</code> of <code class="code">string</code> file path, <code class="code">json</code> content pairs,
+    paired with a <code class="code">list</code> of capabilities. If it fails, then <code class="code"><span class="constructor">Decoding_failed</span></code> is
+    raised with <code class="code">msg</code> as its parameter.<br>
+</div>
+
+<pre><span id="VALdecode_file_content_list_message"><span class="keyword">val</span> decode_file_content_list_message</span> : <code class="type">string -> [ `Assoc of (string * Yojson.Basic.json) list ]</code></pre><div class="info ">
+<code class="code">decode_file_content_list_message&nbsp;msg</code> takes a <code class="code">string</code> value <code class="code">msg</code> and
+    tries to decode this into a JSON association list, mapping <code class="code">string</code> file
+    paths to <code class="code">json</code> content. If it fails to do this, then <code class="code"><span class="constructor">Decoding_failed</span></code> is
+    raised with <code class="code">msg</code> as the parameter.<br>
+</div>
+
+<pre><span id="VALdecode_permission_list_message"><span class="keyword">val</span> decode_permission_list_message</span> : <code class="type">string -> (<a href="Auth.Token.html#TYPEt">Auth.Token.t</a> * string) list</code></pre><div class="info ">
+<code class="code">decode_permission_list_message&nbsp;msg</code> decodes <code class="code">msg</code> into a <code class="code">list</code> of pairs of
+    permission tokens and file paths to then mint into capabilities.<br>
+</div>
+
+<pre><span id="VALencode_capabilities"><span class="keyword">val</span> encode_capabilities</span> : <code class="type"><a href="Auth.M.html#TYPEt">Auth.M.t</a> list -> Yojson.Basic.json</code></pre><div class="info ">
+Serialises a list of capabilities to accompany a request. This is
+    <code class="code"><span class="constructor">Yojson</span>.<span class="constructor">Basic</span>.json</code> as it will then be composed with other JSON.<br>
+</div>
+
+<pre><span id="VALdecode_capabilities"><span class="keyword">val</span> decode_capabilities</span> : <code class="type">Yojson.Basic.json -> <a href="Auth.M.html#TYPEt">Auth.M.t</a> list</code></pre><div class="info ">
+Deserialises a JSON collection of capabilities accompanying a request into a
+    list of <code class="code"><span class="constructor">M</span>.t</code>.<br>
+</div>
+</body></html>

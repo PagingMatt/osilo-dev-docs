@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Api.Client.set_local-c.html">
+<link rel="next" href="Api.Client.del_local-c.html">
+<link rel="Up" href="Api.Client.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Api" rel="Chapter" href="Api.html">
+<link title="Auth" rel="Chapter" href="Auth.html">
+<link title="Coding" rel="Chapter" href="Coding.html">
+<link title="Cryptography" rel="Chapter" href="Cryptography.html">
+<link title="File_tree" rel="Chapter" href="File_tree.html">
+<link title="Http_client" rel="Chapter" href="Http_client.html">
+<link title="Http_server" rel="Chapter" href="Http_server.html">
+<link title="Peer" rel="Chapter" href="Peer.html">
+<link title="Silo" rel="Chapter" href="Silo.html">
+<link title="Peer_access_log" rel="Chapter" href="Peer_access_log.html">
+<link title="Wm" rel="Chapter" href="Wm.html"><title>Api.Client.set_remote</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Api.Client.set_local-c.html" title="Api.Client.set_local">Previous</a>
+&nbsp;<a class="up" href="Api.Client.html" title="Api.Client">Up</a>
+&nbsp;<a class="post" href="Api.Client.del_local-c.html" title="Api.Client.del_local">Next</a>
+</div>
+<h1>Class <a href="type_Api.Client.set_remote.html">Api.Client.set_remote</a></h1>
+
+<pre><span name="TYPEset_remote"><span class="keyword">class</span> set_remote</span> : <code class="type">< get_address : <a href="Peer.html#TYPEt">Peer.t</a>; get_capability_service : <a href="Auth.CS.html#TYPEt">Auth.CS.t</a>;<br>         get_data_cache : Data_cache.t; get_private_key : Nocrypto.Rsa.priv;<br>         get_public_key : Nocrypto.Rsa.pub; get_secret_key : Cstruct.t;<br>         get_silo_client : <a href="Silo.Client.html#TYPEt">Silo.Client.t</a>; set_data_cache : Data_cache.t -> unit;<br>         .. > -> </code><code class="code"><span class="keyword">object</span></code> <a href="Api.Client.set_remote-c.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info class top">
+Entrypoint for client to get peer to write another peer's data.<br>
+</div>
+<b>Inherits</b><ul>
+<li><code class="code"><span class="constructor">Wm</span>.resource</code></li>
+</ul>
+<hr width="100%">
+
+<pre><span id="METHODcontent_types_provided"><span class="keyword">method</span> content_types_provided</span> : <code class="type">((string * Cohttp_lwt_body.t Wm.provider) list, Cohttp_lwt_body.t) Wm.op</code></pre>
+<pre><span id="METHODcontent_types_accepted"><span class="keyword">method</span> content_types_accepted</span> : <code class="type">((string * Cohttp_lwt_body.t Wm.acceptor) list, Cohttp_lwt_body.t) Wm.op</code></pre></body></html>
