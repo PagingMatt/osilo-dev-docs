@@ -34,7 +34,8 @@
 
 <pre><span class="keyword">module</span> Client: <code class="code"><span class="keyword">sig</span></code> <a href="Silo.Client.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
 <code class="code"><span class="constructor">Client</span></code> module abstracts some client-specific behaviour. It encapsulates
-    the two clients needed to interact with Datakit.<br>
+    the two clients needed to interact with Datakit and operations on these,
+    however externally the only exposed function is to create a client.<br>
 </div>
 <hr width="100%">
 
@@ -50,15 +51,7 @@ Internal type for a client.<br>
       no port or no host meaning that a <code class="code">t</code> cannot be built of it.<br>
 </div>
 
-<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">server:string -> <a href="Silo.Client.html#TYPEt">t</a></code></pre><div class="info ">
-<code class="code">make&nbsp;~server</code> gives a <code class="code">t</code> for <code class="code">server</code>.<br>
-</div>
-
-<pre><span class="keyword">module</span> <a href="Silo.Client.Silo_9p_client.html">Silo_9p_client</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Silo.Client.Silo_9p_client.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
-A 9P UNIX client made by applying a source log to the functor.
-</div>
-
-<pre><span class="keyword">module</span> <a href="Silo.Client.Silo_datakit_client.html">Silo_datakit_client</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Silo.Client.Silo_datakit_client.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
-Datakit client made by applying <code class="code"><span class="constructor">Silo_9p_client</span></code> to the functor.
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">server:string -> port:int -> <a href="Silo.Client.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">create&nbsp;~server&nbsp;~port</code> gives a <code class="code">t</code> for <code class="code">server</code> at <code class="code">port</code>.<br>
 </div>
 </body></html>

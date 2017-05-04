@@ -42,16 +42,28 @@ Provides a module to abstract peers in the platform.<br>
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 
 
-<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">string -> <a href="Peer.html#TYPEt">t</a></code></pre><div class="info ">
-<code class="code">create&nbsp;host</code> builds a <code class="code">t</code> from a string <code class="code">host</code>.<br>
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">string -> int -> <a href="Peer.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">create&nbsp;host&nbsp;port</code> builds a <code class="code">t</code> from a string <code class="code">host</code> and int <code class="code">port</code>.<br>
 </div>
 
 <pre><span id="VALhost"><span class="keyword">val</span> host</span> : <code class="type"><a href="Peer.html#TYPEt">t</a> -> string</code></pre><div class="info ">
 <code class="code">host&nbsp;peer</code> gives the <code class="code">string</code> representing the host name of <code class="code">peer</code>.<br>
 </div>
 
+<pre><span id="VALport"><span class="keyword">val</span> port</span> : <code class="type"><a href="Peer.html#TYPEt">t</a> -> int</code></pre><div class="info ">
+<code class="code">port&nbsp;peer</code> gives the <code class="code">int</code> representing the port number of <code class="code">peer</code>.<br>
+</div>
+
 <pre><span id="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type"><a href="Peer.html#TYPEt">t</a> -> <a href="Peer.html#TYPEt">t</a> -> int</code></pre><div class="info ">
 This makes a uri from the peer and then uses the <code class="code"><span class="constructor">Uri</span></code> module's compare
     function.<br>
+</div>
+
+<pre><span id="VALt_of_string"><span class="keyword">val</span> t_of_string</span> : <code class="type">string -> <a href="Peer.html#TYPEt">t</a></code></pre><div class="info ">
+Deserialisation function for <code class="code"><span class="constructor">Peer</span></code>.<br>
+</div>
+
+<pre><span id="VALstring_of_t"><span class="keyword">val</span> string_of_t</span> : <code class="type"><a href="Peer.html#TYPEt">t</a> -> string</code></pre><div class="info ">
+Serialisation function for <code class="code"><span class="constructor">Peer</span></code>.<br>
 </div>
 </body></html>

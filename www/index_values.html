@@ -67,12 +67,12 @@ This makes a uri from the peer and then uses the <code class="code"><span class=
 </td></tr>
 <tr><td><a href="Silo.Client.html#VALcreate">create</a> [<a href="Silo.Client.html">Silo.Client</a>]</td>
 <td><div class="info">
-<code class="code">make&nbsp;~server</code> gives a <code class="code">t</code> for <code class="code">server</code>.
+<code class="code">create&nbsp;~server&nbsp;~port</code> gives a <code class="code">t</code> for <code class="code">server</code> at <code class="code">port</code>.
 </div>
 </td></tr>
 <tr><td><a href="Peer.html#VALcreate">create</a> [<a href="Peer.html">Peer</a>]</td>
 <td><div class="info">
-<code class="code">create&nbsp;host</code> builds a <code class="code">t</code> from a string <code class="code">host</code>.
+<code class="code">create&nbsp;host&nbsp;port</code> builds a <code class="code">t</code> from a string <code class="code">host</code> and int <code class="code">port</code>.
 </div>
 </td></tr>
 <tr><td><a href="Auth.M.html#VALcreate">create</a> [<a href="Auth.M.html">Auth.M</a>]</td>
@@ -317,6 +317,11 @@ Get the path down the file tree that the capability is recursively valid
       under.
 </div>
 </td></tr>
+<tr><td><a href="Peer.html#VALport">port</a> [<a href="Peer.html">Peer</a>]</td>
+<td><div class="info">
+<code class="code">port&nbsp;peer</code> gives the <code class="code">int</code> representing the port number of <code class="code">peer</code>.
+</div>
+</td></tr>
 <tr><td><a href="Http_client.html#VALpost">post</a> [<a href="Http_client.html">Http_client</a>]</td>
 <td><div class="info">
 <code class="code">post&nbsp;~peer&nbsp;~path&nbsp;~body&nbsp;~key</code> gives a promise to the pair of an <code class="code">int</code> HTTP
@@ -384,6 +389,11 @@ Function to sign a message.
 Get the source peer that the capability can be used at.
 </div>
 </td></tr>
+<tr><td><a href="Peer.html#VALstring_of_t">string_of_t</a> [<a href="Peer.html">Peer</a>]</td>
+<td><div class="info">
+Serialisation function for <code class="code"><span class="constructor">Peer</span></code>.
+</div>
+</td></tr>
 <tr><td><a href="Auth.M.html#VALstring_of_t">string_of_t</a> [<a href="Auth.M.html">Auth.M</a>]</td>
 <td><div class="info">
 Serialises a capability.
@@ -395,6 +405,11 @@ Serialises <code class="code"><span class="constructor">Token</span>.t</code> to
 </div>
 </td></tr>
 <tr><td align="left"><br>T</td></tr>
+<tr><td><a href="Peer.html#VALt_of_string">t_of_string</a> [<a href="Peer.html">Peer</a>]</td>
+<td><div class="info">
+Deserialisation function for <code class="code"><span class="constructor">Peer</span></code>.
+</div>
+</td></tr>
 <tr><td><a href="Auth.M.html#VALt_of_string">t_of_string</a> [<a href="Auth.M.html">Auth.M</a>]</td>
 <td><div class="info">
 Deserialises a <code class="code">string</code> to a capability or raises
